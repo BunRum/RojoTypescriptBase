@@ -2,11 +2,11 @@ local roblox = require("@lune/roblox")
 local serde = require("@lune/serde")
 local net = require("@lune/net")
 local process = require("@lune/process")
+local fs = require("@lune/fs")
 
-print(process.env)
+local ROBLOSECURITY: string = fs.readFile("lune/cookie")
 
-local cookie = roblox.getAuthCookie()
-assert(cookie ~= nil, "Failed to get roblox auth cookie")
+local cookie = ".ROBLOSECURITY=" .. ROBLOSECURITY .. "; Domain=.roblox.com"
 
 local myPrivatePlaceId = 1234567890
 
@@ -18,5 +18,6 @@ local response = net.request({
 })
 
 local responseTable = serde.decode("json", response.body)
+-- print(responseTable)
 local responseLocation = responseTable.locations[1].location
-print("Download link to place: " .. responseLocation)
+-- print("Download link to place: " .. responseLocation)/
