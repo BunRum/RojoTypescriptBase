@@ -1,6 +1,9 @@
 local roblox = require("@lune/roblox")
 local serde = require("@lune/serde")
 local net = require("@lune/net")
+local process = require("@lune/process")
+
+print(process.env)
 
 local cookie = roblox.getAuthCookie()
 assert(cookie ~= nil, "Failed to get roblox auth cookie")
