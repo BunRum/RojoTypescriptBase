@@ -1,0 +1,28 @@
+{
+  "name": "rojotypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rbxtsc",
+    "watch": "rbxtsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BunRum/RojoTypescriptBase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BunRum/RojoTypescriptBase/issues"
+  },
+  "homepage": "https://github.com/BunRum/RojoTypescriptBase#readme",
+  "devDependencies": {
+    "@rbxts/compiler-types": "^3.0.0-types.0",
+    "@rbxts/types": "^1.0.883",
+    "roblox-ts": "^3.0.0",
+    "typescript": "^5.9.2"
+  }
+}
