@@ -1,9 +1,11 @@
 name: Rokit Install and Update Workflow (Optimized)
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+
 
 jobs:
   build:
