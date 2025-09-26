@@ -1,2 +1,5 @@
 # Tools To Download
-* Aftman - For Rojo & Lune
+* Rokit - For Rojo & Lune
+
+# How to build
+```rokit install```
