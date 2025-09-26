@@ -1,0 +1,44 @@
+name: Rokit Install and Update Workflow (Optimized)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Cache Cargo dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo
+          key: ${{ runner.os }}-cargo-rokit
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Install Rokit binary (Fast with cache)
+        run: cargo install rokit --locked
+
+      - name: Initialize Rokit
+        run: rokit self-install
+
+      - name: Run Rokit install
+        run: rokit install
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run npm update script
+        run: npm run update
