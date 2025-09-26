@@ -39,6 +39,9 @@ jobs:
 
       - name: Run Rokit install
         run: rokit install
+      
+      - name: Add Rokit tools to PATH
+        run: echo "${HOME}/.rokit/bin" >> $GITHUB_PATH
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
