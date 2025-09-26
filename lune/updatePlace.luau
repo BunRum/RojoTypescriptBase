@@ -10,23 +10,25 @@ local function trim(s)
 end
 
 -- Custom function to load environment variables
-local function getEnv(filePath)
-	local envContent = fs.readFile(filePath)
-	if envContent then
-		for line in envContent:gmatch("([^\n]+)") do
-			-- Ignore comments and empty lines
-			if not line:match("^#") and not line:match("^%s*$") then
-				local key, value = line:match("([^=]+)=(.*)")
-				if key and value then
-					process.env[trim(key)] = trim(value)
+local function getEnv()
+	if fs.isFile("./.env") then
+		local filePath = "./.env"
+		local envContent = fs.readFile(filePath)
+		if envContent then
+			for line in envContent:gmatch("([^\n]+)") do
+				-- Ignore comments and empty lines
+				if not line:match("^#") and not line:match("^%s*$") then
+					local key, value = line:match("([^=]+)=(.*)")
+					if key and value then
+						process.env[trim(key)] = trim(value)
+					end
 				end
 			end
 		end
 	end
 end
 
--- Load environment variables from .env file
-getEnv("./.env")
+getEnv()
 
 -- Error checking for required environment variables
 if not process.env.ROBLOSECURITY or not process.env.PLACEID then
@@ -90,7 +92,7 @@ for _, service in ipairs(services) do
 	print(service)
 	-- Check if a service with the same name already exists in the old game.
 	local existingService = oldGame:FindFirstChild(service)
-  local codebaseService = codebaseGame:GetService(service)
+	local codebaseService = codebaseGame:GetService(service)
 
 	if existingService then
 		print("Service found:", service, "- Merging children.")
