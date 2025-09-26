@@ -1,3 +1,7 @@
 node_modules
 out
 lune/cookie
+*.rbxl
+*.rbxl.lock
+.env
+.luaurc

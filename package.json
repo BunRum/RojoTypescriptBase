@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rbxtsc",
-    "watch": "rbxtsc -w"
+    "watch": "rbxtsc -w",
+    "update": "npm run build && lune run updatePlace"
   },
   "repository": {
     "type": "git",

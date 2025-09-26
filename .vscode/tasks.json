@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "checkLuneFile",
+      "type": "shell",
+      "command": "if ('${fileDirname}\\${fileBasename}' -like '*\\lune\\*.luau') { Write-Output 'OK' } else { Write-Error 'Launch cancelled: Not a .luau file in the ./lune directory.'; exit 1 }",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
