@@ -54,4 +54,7 @@ jobs:
         run: npm install
 
       - name: Run npm update script
+        env:
+          ROBLOSECURITY: ${{secrets.ROBLOSECURITY}}
+          PLACEID: ${{secrets.PLACEID}}
         run: npm run update
