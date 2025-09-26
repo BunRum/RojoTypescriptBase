@@ -45,5 +45,8 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Run npm install
+        run: npm install
+
       - name: Run npm update script
         run: npm run update
