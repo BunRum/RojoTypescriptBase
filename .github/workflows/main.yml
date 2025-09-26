@@ -33,7 +33,7 @@ jobs:
         run: rokit self-install
 
       - name: Trust required tools
-        run: rokit add lune-org/lune
+        run: rokit add --force lune-org/lune
 
       - name: Run Rokit install
         run: rokit install
