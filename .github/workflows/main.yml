@@ -32,6 +32,9 @@ jobs:
       - name: Initialize Rokit
         run: rokit self-install
 
+      - name: Trust required tools
+        run: rokit add lune-org/lune
+
       - name: Run Rokit install
         run: rokit install
 
