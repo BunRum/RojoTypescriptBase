@@ -43,9 +43,7 @@ jobs:
           PLACEID: ${{ secrets.PLACEID }}
 
       - name: Import project
-        run: mantle import --target-id $UniverseId
-        env:
-          UniverseId: ${{ secrets.UniverseId }}
+        run: mantle import --target-id ${{ secrets.UniverseId }}
 
       # Deploy the project with mantle
       - name: Deploy project
