@@ -58,3 +58,9 @@ jobs:
           ROBLOSECURITY: ${{secrets.ROBLOSECURITY}}
           PLACEID: ${{secrets.PLACEID}}
         run: npm run update
+
+      - name: Deploy
+        run: rojo upload --cookie "$ROBLOSECURITY" --asset_id "$PLACEID"
+        env:
+          ROBLOSECURITY: ${{secrets.ROBLOSECURITY}}
+          PLACEID: ${{secrets.PLACEID}}

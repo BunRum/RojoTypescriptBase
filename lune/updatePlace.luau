@@ -57,15 +57,15 @@ local placeFile = net.request({
 	url = responseLocation,
 }).body
 
-fs.writeFile("oldGame.rbxl", placeFile)
+-- fs.writeFile("oldGame.rbxlx", placeFile)
 
 local oldGame = roblox.deserializePlace(placeFile)
 print("Successfully downloaded and deserialized the existing game.")
 
-print("Building new game from codebase using Rojo...")
-process.exec("rojo", { "build", "-o", "codebaseGame.rbxl" })
+print("building codebaseGame.rbxlx")
+process.exec("rojo", {"build", "-o", "codebaseGame.rbxlx"})
 
-local codebaseGame = roblox.deserializePlace(fs.readFile("codebaseGame.rbxl"))
+local codebaseGame = roblox.deserializePlace(fs.readFile("codebaseGame.rbxlx"))
 print("Successfully built and deserialized the codebase game.")
 
 print("Starting merge process...")
@@ -127,6 +127,7 @@ for _, service in ipairs(services) do
 	end
 end
 
-print("Merging complete. Saving combined place file to disk as 'merged_place.rbxl'...")
-fs.writeFile("merged_place.rbxl", roblox.serializePlace(oldGame))
+print("Merging complete. Saving combined place file to disk as 'merged_place.rbxlx'...")
+fs.writeFile("merged_place.rbxlx", roblox.serializePlace(oldGame))
 print("Done!")
+

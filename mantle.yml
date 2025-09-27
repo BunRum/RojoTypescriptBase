@@ -1,0 +1,21 @@
+environments:
+  - label: dev
+    targetNamePrefix: environmentLabel
+  - label: production
+    branches: [main]
+    targetAccess: public
+    
+
+
+target:
+  experience:
+    configuration:
+      genre: building
+      playability: public
+    places:
+      start:
+        file: merged_place.rbxlx
+        configuration:
+          name: mafia test with mantle deployed
+          description: |-
+            Made with Mantle
