@@ -30,7 +30,7 @@ jobs:
 
       - name: Compile Project
         run: npm run build
-        
+
       # Build the project with rojo
       - name: Build project
         run: rojo build --output codebaseGame.rbxlx
@@ -38,6 +38,10 @@ jobs:
       #combines the current uploaded game with the built project with rojo
       - name: Merge project
         run: lune run updatePlace
+        env: 
+          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+          PLACEID: ${{ secrets.PLACEID }}
+
 
       # Deploy the project with mantle
       - name: Deploy project
