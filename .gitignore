@@ -3,5 +3,8 @@ out
 lune/cookie
 *.rbxl
 *.rbxl.lock
+*.rbxlx
+*.rbxlx.lock
+sourcemap.json
 .env
 .luaurc
