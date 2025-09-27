@@ -62,9 +62,6 @@ local placeFile = net.request({
 local oldGame = roblox.deserializePlace(placeFile)
 print("Successfully downloaded and deserialized the existing game.")
 
-print("building codebaseGame.rbxlx")
-process.exec("rojo", {"build", "-o", "codebaseGame.rbxlx"})
-
 local codebaseGame = roblox.deserializePlace(fs.readFile("codebaseGame.rbxlx"))
 print("Successfully built and deserialized the codebase game.")
 

@@ -19,9 +19,21 @@ jobs:
       - uses: Roblox/setup-foreman@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run npm install
+        run: npm install
+
+      - name: Compile Project
+        run: npm run build
+        
       # Build the project with rojo
       - name: Build project
-        run: rojo build --output codebaseGame.rbxl
+        run: rojo build --output codebaseGame.rbxlx
 
       #combines the current uploaded game with the built project with rojo
       - name: Merge project

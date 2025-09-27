@@ -16,6 +16,6 @@ target:
       start:
         file: merged_place.rbxlx
         configuration:
-          name: mafia test with mantle deployed
+          name: super awesome project
           description: |-
             Made with Mantle
