@@ -42,6 +42,10 @@ jobs:
           ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
           PLACEID: ${{ secrets.PLACEID }}
 
+      - name: Import project
+        run: mantle import --target-id $UniverseId
+        env:
+          UniverseId: ${{ secrets.UniverseId }}
 
       # Deploy the project with mantle
       - name: Deploy project
